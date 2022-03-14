@@ -49,7 +49,7 @@ By default, Unity Package Manager (UPM) does not resolve git URLS as package->pa
 * For each dependency, add its URL to the project package manifest (see above).
 * Use a custom solution, such as https://github.com/k0dep/Originer
 
-Alternatively, we could host this package in a custom ["Scoped Registry"](https://docs.unity3d.com/Manual/upm-scoped.html). If/when we do decide to add this to a scoped registry, we should read this blog post on the topic: https://sandolkakos.github.io/my-blog/upm-studies/
+Alternatively, we could host this package in a custom ["Scoped Registry"](https://docs.unity3d.com/Manual/upm-scoped.html). For open source projects, a good option might be https://openupm.com/docs/. If/when we do decide to add this to a scoped registry, we should read this blog post on the topic: https://sandolkakos.github.io/my-blog/upm-studies/
 
 **Dependencies**: 
 
