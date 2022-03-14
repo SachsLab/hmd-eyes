@@ -20,12 +20,40 @@ This guide walks you through a first time setup for your Pupil Labs VR add-on.
 
 ## Develop, integrate, and extend
 
-Download the *.unitypackage from the [latest release](https://github.com/pupil-labs/hmd-eyes/releases/latest) and 
-check out the [developer docs](./docs/Developer.md) to learn how to set up dev environment, make changes to code, and integrate with your own Unity3D project.
+### Installing this package to your project
+
+#### Option 1 - From the Editor
+
+Open the Package Manager Window, click on the `+` dropdown, and choose `Add package from git URL...`. Enter the followingURL: 
+
+`https://github.com/SachsLab/hmd-eyes.git`
+
+[See the Unity docs for more info](https://docs.unity3d.com/Manual/upm-ui-giturl.html).
+
+#### Option 2 - Modify Project Package Manifest
+
+Edit `<your project folder>/Packages/manifest.json` and add the following to your dependencies section:
+
+`"com.pupillabs.hmdeyes": "https://github.com/SachsLab/hmd-eyes.git"`
+
+The advantage of this approach is that it will allow you to specify this package as a dependency of another.
+
+[See Unity docs for more info](https://docs.unity3d.com/2020.3/Documentation/Manual/upm-git.html).
+
+### Adding this package as a dependency to another package
+
+We do not yet have this package added to a ["Scoped Registry"](https://docs.unity3d.com/Manual/upm-scoped.html), and UPM cannot resolve package git dependencies.
+
+By default, Unity Package Manager (UPM) does not resolve git URLS as package->package dependencies. There are a couple ways to allowthis:
+
+* For each dependency, add its URL to the project package manifest (see above).
+* Use a custom solution, such as https://github.com/k0dep/Originer
+
+Alternatively, we could host this package in a custom ["Scoped Registry"](https://docs.unity3d.com/Manual/upm-scoped.html). If/when we do decide to add this to a scoped registry, we should read this blog post on the topic: https://sandolkakos.github.io/my-blog/upm-studies/
 
 **Dependencies**: 
 
-* Unity 2018.3+
+* Unity 2020.3+
 * `ProjectSettings/Player/Configuration/Scripting Runtime Verion` set to **.NET 4.x Equivalent**.
 * Due to an issue with MessagePack, the default project setting for `ProjectSettings/Player/Configuration/API Compatibility Level` is not supported and needs to be set to **.NET 4.x**
 
